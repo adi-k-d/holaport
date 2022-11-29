@@ -11,13 +11,14 @@ import Register from "./pages/Register"
 import Header from "./components/Header"
 import { useContext } from "react"
 import { AuthContext } from "./context/AuthContext"
+import Home from "./pages/Home"
 
 function App() {
   const { currentUser } = useContext(AuthContext)
 
   const ProtectedRoute = ({ children }) => {
     if (!currentUser) {
-      return <Navigate to="/login" />
+      return <Navigate to="/" />
     }
 
     return children
@@ -28,13 +29,14 @@ function App() {
         <Header />
         <Routes>
           <Route
-            path="/"
+            path="/upload"
             element={
               <ProtectedRoute>
                 <Dashboard />
               </ProtectedRoute>
             }
           />
+          <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Routes>

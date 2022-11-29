@@ -1,4 +1,4 @@
-import { FaSignInAlt, FaSignOutAlt, FaUser } from "react-icons/fa"
+import { FaSignInAlt, FaSignOutAlt, FaUser, FaUpload } from "react-icons/fa"
 import { Link, useNavigate } from "react-router-dom"
 import { useContext } from "react"
 import { AuthContext } from "../context/AuthContext"
@@ -17,15 +17,22 @@ function Header() {
   return (
     <header className="header">
       <div className="logo">
-        <Link to="/">DailyPost</Link>
+        <Link to="/">Daily Posts</Link>
       </div>
       <ul>
         {currentUser ? (
-          <li>
-            <button className="btn" onClick={() => signOut(auth)}>
-              <FaSignOutAlt /> Logout
-            </button>
-          </li>
+          <>
+            <li>
+              <button className="btn" onClick={() => signOut(auth)}>
+                <FaSignOutAlt /> Logout
+              </button>
+            </li>
+            <li>
+              <button className="btn" onClick={() => navigate("/upload")}>
+                <FaUpload /> Upload Post
+              </button>
+            </li>
+          </>
         ) : (
           <>
             <li>

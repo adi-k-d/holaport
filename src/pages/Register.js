@@ -27,7 +27,6 @@ function Register() {
     e.preventDefault()
 
     if (password !== password2) {
-      // toast.error("Passwords do not match")
     } else {
       const userData = {
         name,
@@ -39,14 +38,8 @@ function Register() {
         navigate("/")
         console.log(res)
       } catch (error) {}
-
-      // dispatch(register(userData))
     }
   }
-
-  // if (isLoading) {
-  //   return <Spinner />
-  // }
 
   return (
     <>
