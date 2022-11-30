@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { collection, addDoc, serverTimestamp } from "firebase/firestore"
-import { db, auth } from "../firebase"
+import { db } from "../firebase"
 import { useContext } from "react"
 import { AuthContext } from "../context/AuthContext"
 import { Link, useNavigate } from "react-router-dom"
